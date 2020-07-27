@@ -45,6 +45,12 @@ class Task(object):
         """
         return self.item['due'].get('date')
 
+  def is_overdue(self, today):
+        """
+        Check if task is due.
+        """
+        return self.due_date < today
+    
     def is_due(self, today):
         """
         Check if task is due.
@@ -114,9 +120,9 @@ class Todoist(object):
         for item in items:
             task = Task(item)
             if task.is_habit():
-                if task.is_due(self.today):
+                if task.is_overdue(self.today):
                     task.reset_to_zero(self.today)
-                else:
+                else if task.is_due(self.today):
                     task.increase()
         self.api.commit()
 
