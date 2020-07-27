@@ -44,8 +44,8 @@ class Task(object):
         :return:
         """
         return self.item['due'].get('date')
-
-  def is_overdue(self, today):
+    
+    def is_overdue(self, today):
         """
         Check if task is due.
         """
