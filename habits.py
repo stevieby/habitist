@@ -122,7 +122,7 @@ class Todoist(object):
             if task.is_habit():
                 if task.is_overdue(self.today):
                     task.reset_to_zero(self.today)
-                else if task.is_due(self.today):
+                elif task.is_due(self.today):
                     task.increase()
         self.api.commit()
 
