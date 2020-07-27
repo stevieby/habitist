@@ -2,7 +2,7 @@ name: habitist
 
 on:
   schedule:
-    - cron: '00 02 * * *'
+    - cron: '33 07 * * *'
 
 jobs:
   build:
